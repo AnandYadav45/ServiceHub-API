@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.servicehub</groupId>
+    <artifactId>servicehub-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>servicehub-common</artifactId>
+  <name>Common Module</name>
+  
+  <dependencies>
+        <!-- Core Spring annotations (@Component, @Value etc.) — NOT the full web starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- Bean Validation annotations, used on shared base DTOs -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+      <!-- persists user credentials/roles -->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-security</artifactId>
+      </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+          <dependency>
+              <groupId>com.fasterxml.jackson.core</groupId>
+              <artifactId>jackson-databind</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>jakarta.servlet</groupId>
+              <artifactId>jakarta.servlet-api</artifactId>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-web</artifactId>
+          </dependency>
+
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-webflux</artifactId>
+          </dependency>
+
+          <dependency>
+              <groupId>io.projectreactor.netty</groupId>
+              <artifactId>reactor-netty-http</artifactId>
+          </dependency>
+
+          <!-- Source: https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+          <dependency>
+              <groupId>org.springdoc</groupId>
+              <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+              <version>3.0.3</version>
+              <scope>compile</scope>
+          </dependency>
+
+          <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-actuator</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>io.micrometer</groupId>
+              <artifactId>micrometer-registry-prometheus</artifactId>
+          </dependency>
+
+
+          <dependency>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-cache</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>com.github.ben-manes.caffeine</groupId>
+              <artifactId>caffeine</artifactId>
+          </dependency>
+
+
+
+<!--          <dependency>-->
+<!--              <groupId>net.logstash.logback</groupId>-->
+<!--              <artifactId>logstash-logback-encoder</artifactId>-->
+<!--              &lt;!&ndash; check Maven Central for the current release when you add this — this library ships-->
+<!--                   frequent minor versions, worth a quick look rather than trusting a number here going stale &ndash;&gt;-->
+<!--          </dependency>-->
+
+        <!-- Lombok — used on shared DTOs/exceptions (@Getter, @Builder etc.) -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- MapStruct core — if common defines any shared base mapper interfaces -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+    </dependencies>
+  
+</project>
