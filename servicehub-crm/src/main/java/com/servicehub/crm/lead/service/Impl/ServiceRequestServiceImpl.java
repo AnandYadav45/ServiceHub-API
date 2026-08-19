@@ -18,6 +18,7 @@ import com.servicehub.crm.vendor.repository.VendorRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ServiceRequestServiceImpl implements ServiceRequestService {
@@ -38,6 +39,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 
 
     @Override
+    @Transactional
     public ServiceRequestResponse save(ServiceRequestSaveRequest request) {
         Long currentUserId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

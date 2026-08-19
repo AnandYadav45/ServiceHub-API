@@ -13,6 +13,7 @@ import com.servicehub.common.config.CodeGeneratorUtil;
 import com.servicehub.common.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -30,6 +31,7 @@ public class AmcSubscriptionServiceImpl implements AmcSubscriptionService {
 
 
     @Override
+    @Transactional
     public AmcSubscriptionResponse save(AmcSubscriptionSaveRequest request) {
         Long currentUserId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

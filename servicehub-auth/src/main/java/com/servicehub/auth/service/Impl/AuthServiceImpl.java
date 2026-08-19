@@ -14,6 +14,7 @@ import com.servicehub.common.security.jwt.JwtTokenProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -41,6 +42,7 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
+    @Transactional
     public void register(RegisterRequest request) {
         User user = new User();
         user.setName(request.fullName());
@@ -55,6 +57,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Transactional
     public AuthResponse login(LoginRequest request) {
         User user = userRepository.findByPhoneNumber(request.contact())
                 .orElseThrow(() -> new UnauthorizedException(HttpStatus.UNAUTHORIZED, "AUTH-401-001", "Invalid phone number or password"));
@@ -69,6 +72,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    @Transactional
     public void forgotPassword(ForgotPasswordRequest request) {
         userRepository.findByPhoneNumber(request.phoneNumber())
                 .ifPresent(user -> {

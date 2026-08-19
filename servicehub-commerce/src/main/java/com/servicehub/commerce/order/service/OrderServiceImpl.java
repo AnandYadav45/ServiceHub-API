@@ -15,6 +15,7 @@ import com.servicehub.common.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class OrderServiceImpl implements OrderService{
 
 
     @Override
+    @Transactional
     public OrderResponse save(OrderSaveRequest request) {
         Long currentUserId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

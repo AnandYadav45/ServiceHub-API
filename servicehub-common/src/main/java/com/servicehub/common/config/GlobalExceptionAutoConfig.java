@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 
 @AutoConfiguration
-@ConditionalOnWebApplication
+@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 public class GlobalExceptionAutoConfig {
 
     @Bean

@@ -8,6 +8,7 @@ import com.servicehub.amc.repository.AmcPlanRepository;
 import com.servicehub.amc.service.AmcPlanService;
 import com.servicehub.common.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 
 public class AmcPlanServiceImpl implements AmcPlanService {
 
@@ -20,6 +21,7 @@ public class AmcPlanServiceImpl implements AmcPlanService {
     }
 
     @Override
+    @Transactional
     public AmcPlanResponse save(AmcPlanSaveRequest request) {
         AmcPlan amcPlan;
         if (request.id() != null) {

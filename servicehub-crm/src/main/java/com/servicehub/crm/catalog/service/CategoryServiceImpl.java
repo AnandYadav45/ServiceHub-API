@@ -8,6 +8,7 @@ import com.servicehub.crm.catalog.repository.CategoryRepository;
 import com.servicehub.crm.mapper.CategoryMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -21,6 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryMapper = categoryMapper;
     }
     @Override
+    @Transactional
     public CategoryResponse save(CategorySaveRequest request) {
         Category category;
         if (request.id() != null) {

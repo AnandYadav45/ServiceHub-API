@@ -12,7 +12,7 @@
         <logger name="com.servicehub" level="DEBUG"/>
     </springProfile>
 
-    <springProfile name="prod">
+    <springProfile name="uat,prod">
         <appender name="JSON_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="net.logstash.logback.encoder.LogstashEncoder">
                 <includeMdcKeyName>correlationId</includeMdcKeyName>
@@ -24,7 +24,6 @@
         <logger name="com.servicehub" level="INFO"/>
     </springProfile>
 
-    <!-- Framework noise reduction — applies in both profiles -->
     <logger name="org.hibernate.SQL" level="WARN"/>
     <logger name="org.springframework.web" level="WARN"/>
 
