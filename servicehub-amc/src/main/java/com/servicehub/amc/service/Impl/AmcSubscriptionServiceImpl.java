@@ -9,13 +9,14 @@ import com.servicehub.amc.mapper.AmcSubscriptionMapper;
 import com.servicehub.amc.repository.AmcPlanRepository;
 import com.servicehub.amc.repository.AmcSubscriptionRepository;
 import com.servicehub.amc.service.AmcSubscriptionService;
-import com.servicehub.common.config.CodeGeneratorUtil;
+import com.servicehub.common.util.CodeGeneratorUtil;
 import com.servicehub.common.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class AmcSubscriptionServiceImpl implements AmcSubscriptionService {
 
@@ -29,6 +30,14 @@ public class AmcSubscriptionServiceImpl implements AmcSubscriptionService {
         this.subscriptionMapper = subscriptionMapper;
     }
 
+
+    @Override
+    public List<AmcSubscriptionResponse> findAll() {
+        return subscriptionRepository.findAll()
+                .stream()
+                .map(AmcSubscriptionMapper::toResponse)
+                .toList();
+    }
 
     @Override
     @Transactional

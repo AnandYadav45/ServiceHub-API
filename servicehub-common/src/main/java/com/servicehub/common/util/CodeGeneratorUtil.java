@@ -1,4 +1,4 @@
-package com.servicehub.common.config;
+package com.servicehub.common.util;
 
 import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;

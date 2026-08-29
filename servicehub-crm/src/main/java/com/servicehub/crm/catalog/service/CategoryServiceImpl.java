@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -21,6 +23,12 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
     }
+
+    @Override
+    public List<CategoryResponse> findAll() {
+        return List.of();
+    }
+
     @Override
     @Transactional
     public CategoryResponse save(CategorySaveRequest request) {

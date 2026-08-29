@@ -9,7 +9,7 @@ import com.servicehub.commerce.order.repository.OrderRepository;
 import com.servicehub.commerce.product.entity.Product;
 import com.servicehub.commerce.product.enums.OrderStatus;
 import com.servicehub.commerce.product.repository.ProductRepository;
-import com.servicehub.common.config.CodeGeneratorUtil;
+import com.servicehub.common.util.CodeGeneratorUtil;
 import com.servicehub.common.exceptions.BusinessValidationException;
 import com.servicehub.common.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;

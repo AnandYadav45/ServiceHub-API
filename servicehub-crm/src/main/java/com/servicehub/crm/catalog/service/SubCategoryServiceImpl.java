@@ -10,6 +10,8 @@ import com.servicehub.crm.catalog.repository.SubCategoryRepository;
 import com.servicehub.crm.mapper.SubCategoryMapper;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 public class SubCategoryServiceImpl implements SubCategoryService{
 
     private final SubCategoryRepository subCategoryRepository;
@@ -20,6 +22,16 @@ public class SubCategoryServiceImpl implements SubCategoryService{
         this.subCategoryRepository = subCategoryRepository;
         this.categoryRepository = categoryRepository;
         this.subCategoryMapper = subCategoryMapper;
+    }
+
+    @Override
+    public List<SubCategoryResponse> findAll() {
+        return List.of();
+    }
+
+    @Override
+    public List<SubCategoryResponse> findByCategoryId(Long categoryId) {
+        return subCategoryRepository.findByCategoryId(categoryId).stream().map(subCategoryMapper::toResponse).toList();
     }
 
     @Override

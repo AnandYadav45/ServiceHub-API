@@ -31,6 +31,13 @@ public class CaffeineCacheConfig {
 
         // Register new cache here as we need.
 
+        // Add this block inside the existing cacheManager() method, alongside the categories/vendorSummaries registrations:
+        cacheManager.registerCustomCache("amcPlans", Caffeine.newBuilder()
+                .maximumSize(50)
+                .expireAfterWrite(1, TimeUnit.HOURS)
+                .recordStats()
+                .build());
+
         return cacheManager;
     }
 

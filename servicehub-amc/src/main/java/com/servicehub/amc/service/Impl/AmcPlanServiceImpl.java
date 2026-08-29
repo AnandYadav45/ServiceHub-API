@@ -10,6 +10,9 @@ import com.servicehub.common.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AmcPlanServiceImpl implements AmcPlanService {
 
     private final AmcPlanRepository amcPlanRepository;
@@ -18,6 +21,17 @@ public class AmcPlanServiceImpl implements AmcPlanService {
     public AmcPlanServiceImpl(AmcPlanRepository amcPlanRepository, AmcPlanMapper amcPlanMapper) {
         this.amcPlanRepository = amcPlanRepository;
         this.amcPlanMapper = amcPlanMapper;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<AmcPlanResponse> findAll() {
+        List<AmcPlanResponse> list = new ArrayList<>();
+        for (AmcPlan amcPlan : amcPlanRepository.findAll()) {
+            AmcPlanResponse response = AmcPlanMapper.toResponse(amcPlan);
+            list.add(response);
+        }
+        return list;
     }
 
     @Override
@@ -32,6 +46,6 @@ public class AmcPlanServiceImpl implements AmcPlanService {
             amcPlan = amcPlanMapper.toEntity(request);
         }
         AmcPlan saved = amcPlanRepository.save(amcPlan);
-        return amcPlanMapper.toResponse(saved);
+        return AmcPlanMapper.toResponse(saved);
     }
 }

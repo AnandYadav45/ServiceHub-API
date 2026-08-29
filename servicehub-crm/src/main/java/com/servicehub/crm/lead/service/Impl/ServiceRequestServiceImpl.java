@@ -1,6 +1,6 @@
 package com.servicehub.crm.lead.service.Impl;
 
-import com.servicehub.common.config.CodeGeneratorUtil;
+import com.servicehub.common.util.CodeGeneratorUtil;
 import com.servicehub.common.exceptions.ResourceNotFoundException;
 import com.servicehub.crm.catalog.entity.SubCategory;
 import com.servicehub.crm.catalog.repository.SubCategoryRepository;

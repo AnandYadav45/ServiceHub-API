@@ -8,4 +8,10 @@ public interface AuthService {
     void forgotPassword(ForgotPasswordRequest request);
     void resetPassword(ResetPasswordRequest request);
     AuthResponse verifyOtp(OtpVerifyRequest request);
+    AuthResponse refreshToken(RefreshTokenRequest request);
+    void logout(RefreshTokenRequest request);
+    UserDto getCurrentUser(Long userId);
+    String issue(Long userId);
+    Long validateAndGetUserId(String token);
+    void revoke(String token);
 }
